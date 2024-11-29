@@ -1,27 +1,27 @@
-# UsersWeb
+# Lista de Usuarios - Web - Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.8.
+El proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 18.2.8.
 
-## Development server
+## Instalación de librerías
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Ejecutar `npm install` para instalar las librerías.
 
-## Code scaffolding
+## Modo desarrollo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Ejecutar `ng serve` para iniciar el modo desarrollo.
 
-## Build
+### Vistas
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+#### Listar usuarios: `http://localhost:4200/list`
 
-## Running unit tests
+#### Detalle de usuario: `http://localhost:4200/detail/:id`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### Crear usuario: `http://localhost:4200/create`
 
-## Running end-to-end tests
+#### Editar usuario: `http://localhost:4200/edit/:id`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Compilación
 
-## Further help
+Ejecutar `ng build` para compilar el proyecto. El resultado se guardará en la carpeta `dist/`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
