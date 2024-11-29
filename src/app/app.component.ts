@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -6,8 +6,17 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'] // Corrected to styleUrls
 })
 export class AppComponent {
-  title = 'Users-Web';
+  title = 'userTest';
+
+  @ViewChild('errorModal') modal!: ElementRef; // Added non-null assertion
+
+  closeModal(): void {
+    if (this.modal) { // Check if modal exists
+      this.modal.nativeElement.classList.remove('show');
+      this.modal.nativeElement.style.display = 'none';
+    }
+  }
 }

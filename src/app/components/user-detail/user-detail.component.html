@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col"> 
+      <h2 class="mb-4">Detalle del Usuario</h2>
+    </div>
+    <div class="col text-center">
+      <button class="btn btn-secondary" routerLink="/">
+        <i class="fas fa-arrow-left"></i> Atrás
+      </button>
+    </div> 
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label for="name" class="form-label"><strong>Nombre:</strong></label>
+      <p>{{ user?.name }}</p>
+    </div>
+    <div class="col">
+      <label for="descripcion" class="form-label"><strong>Email:</strong></label>
+      <p>{{ user?.email }}</p>
+    </div>
+    <div class="col">
+      <label for="estado" class="form-label"><strong>Edad:</strong></label>
+      <p>{{ user?.age }}</p>
+    </div>
+  </div>
+</div>

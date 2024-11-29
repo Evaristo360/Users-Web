@@ -1,0 +1,49 @@
+<div *ngIf="user" class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <h2 class="mb-4">Editar Usuario</h2>
+    </div>
+    <div class="col text-center">
+      <button class="btn btn-secondary" routerLink="/list">
+        <i class="fas fa-arrow-left"></i> Atrás
+      </button>
+    </div>
+  </div>
+
+  <form #form="ngForm" (ngSubmit)="editUser()" novalidate>
+    <div class="mb-3">
+      <label for="titulo" class="form-label">Nombre:</label>
+      <input type="text" [(ngModel)]="user.name" name="name" class="form-control" id="name" required>
+      <div *ngIf="form.controls['name']?.invalid && (form.controls['name']?.touched || form.controls['name']?.dirty)">
+        <small class="text-danger" *ngIf="form.controls['name']?.errors?.['required']">El nombre es requerido.</small>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" [(ngModel)]="user.email" name="email" class="form-control" id="email"
+        pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}" required>
+      <div
+        *ngIf="form.controls['email']?.invalid && (form.controls['email']?.touched || form.controls['email']?.dirty)">
+        <small class="text-danger" *ngIf="form.controls['email']?.errors?.['required']">El email es requerido.</small>
+        <small class="text-danger" *ngIf="form.controls['email']?.errors?.['pattern']">El email no tiene un formato
+          válido.</small>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="age" class="form-label">Edad:</label>
+      <input type="number" [(ngModel)]="user.age" name="age" class="form-control" id="age" min="0" max="120"
+        maxlength="3" required pattern="^[0-9]+$" (keypress)="validateNumber($event)">
+      <div *ngIf="form.controls['age']?.invalid && (form.controls['age']?.touched || form.controls['age']?.dirty)">
+        <small class="text-danger" *ngIf="form.controls['age']?.errors?.['required']">La edad es requerida.</small>
+      </div>
+      <div *ngIf="form.controls['age']?.invalid && (form.controls['age']?.touched || form.controls['age']?.dirty)">
+        <small class="text-danger"
+          *ngIf="form.controls['age']?.errors?.['min'] || form.controls['age']?.errors?.['max']">La edad debe estar
+          entre 0 y 120.</small>
+      </div>
+    </div>
+    <div class="text-end">
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Actualizar Usuario</button>
+    </div>
+  </form>
+</div>
